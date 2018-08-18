@@ -1,40 +1,4 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "jquery.fixed-header@git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-        "scope": null,
-        "escapedName": "jquery.fixed-header",
-        "name": "jquery.fixed-header",
-        "rawSpec": "git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-        "spec": "ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-        "type": "git"
-      },
-      "/home/eksi/public_html/fagus-grecon/typo3conf/ext/lia_package"
-    ]
-  ],
-  "_from": "git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-  "_id": "jquery.fixed-header@1.2.1",
-  "_inCache": true,
-  "_location": "/jquery.fixed-header",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "jquery.fixed-header@git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-    "scope": null,
-    "escapedName": "jquery.fixed-header",
-    "name": "jquery.fixed-header",
-    "rawSpec": "git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-    "spec": "ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-    "type": "git"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-  "_shasum": "669686b48d44f26d9c282d5001167156c2b5356e",
-  "_shrinkwrap": null,
-  "_spec": "jquery.fixed-header@git+ssh://git@gitlab.louis-net.de:kahl/jquery-fixed-header.git#df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
-  "_where": "/home/eksi/public_html/fagus-grecon/typo3conf/ext/lia_package",
   "author": {
     "name": "Patrick Kahl",
     "email": "kahl@louis.info"
@@ -46,16 +10,13 @@
   "devDependencies": {
     "prettier": "^1.4.4"
   },
-  "gitHead": "df4741fea314651cdb4f72c6c087b36aeb8d0ac5",
   "main": "jquery.fixed-header.js",
   "name": "jquery.fixed-header",
-  "optionalDependencies": {},
-  "private": true,
   "readme": "# jquery.fixed-header.js\n\n> jQuery script to add fixed header functionality\n\n## Install\n\n```\n$ npm install -S jquery.fixed-header.js\n```\n\n*Requires [Node.js](https://nodejs.org) 4+\n\n## Usage\n\nInclude the script in your page.\n\n```html\n<script src=\"node_modules/jquery.fixed-header/jquery.fixed-header.js\"></script>\n```\n\nNow you can activate the script by simply add the call to your header.\n\n```javascript\n$('.header').fixed();\n```\n\n### Options\n\nThere are also some options that can be set. Simply add an object to the function call.\n\n```javascript\n$('.header').fixed({\n  toAnchor: 'scroll',\n  onLoadAnchor: 'jump',\n  onChangeAnchor: 'jump',\n  offset: 50,\n  class: 'header--fixed',\n  objects: {}\n});\n```\n\n<table>\n  <th>\n    <td>type</td>\n    <td>default</td>\n    <td>possible</td>\n    <td>description</td>\n  </th>\n  <tr>\n    <td>toAnchor</td>\n    <td>string</td>\n    <td>scroll</td>\n    <td>scroll, jump, ''</td>\n    <td>Define action on anchor click. For example `scroll` scrolls to the new anchor position with the fixed header.</td>\n  </tr>\n  <tr>\n    <td>onLoadAnchor</td>\n    <td>string</td>\n    <td>jump</td>\n    <td>scroll, jump, ''</td>\n    <td>Define action on page load with anchor in url. For example `jump` jumps immediately to the anchor.</td>\n  </tr>\n  <tr>\n    <td>onChangeAnchor</td>\n    <td>string</td>\n    <td>jump</td>\n    <td>scroll, jump, ''</td>\n    <td>Define action url change with anchor. For example `jump` jumps immediately to the anchor.</td>\n  </tr>\n  <tr>\n    <td>offset</td>\n    <td>number</td>\n    <td>50</td>\n    <td>Any number from zero</td>\n    <td>Set the offset from when the fixed header should be triggert.</td>\n  </tr>\n  <tr>\n    <td>class</td>\n    <td>string</td>\n    <td>header--fixed</td>\n    <td>All strings with css convention</td>\n    <td>Set the offset from when the fixed header should be triggert.</td>\n  </tr>\n  <tr>\n    <td>objects</td>\n    <td>objects</td>\n    <td>{}</td>\n    <td></td>\n    <td>\n      Add additional elements to set classes if header is fixed<br>\n      Example:\n      ```javascript\n        objects: [\n            {\n              object: $('.logo'),\n              class: 'logo--fixed'\n            }\n        ]\n      ```\n    </td>\n  </tr>\n</table>\n\n\n\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.louis-net.de:kahl/jquery-fixed-header.git"
+    "url": "git@github.com:LOUISINTERNET/jquery-fixed-header.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
