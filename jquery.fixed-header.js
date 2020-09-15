@@ -1,4 +1,4 @@
-(function($) {
+;(function ($) {
   /**
    * Add fixed function to global scope to add the possibility
    *
@@ -24,7 +24,7 @@
    * @ param {object} settings
    * @ return {object} this
    */
-  $.fn.fixed = function(customer_opt) {
+  $.fn.fixed = function (customer_opt) {
     // Define objects and default values
     var header = this,
       w = $(window),
@@ -52,123 +52,121 @@
        * with given action
        * @param {string} action addClass || removeClass
        */
-      toggleClass = function(action) {
-        header[action](opt.class);
+      toggleClass = function (action) {
+        header[action](opt.class)
 
         if (opt.objects.length > 0) {
-          $.each(opt.objects, function(i, e) {
+          $.each(opt.objects, function (i, e) {
             if (e.object && e.class) {
-              $(e.object)[action](e.class);
+              $(e.object)[action](e.class)
             }
-          });
+          })
         }
 
         var event = new CustomEvent('fixed-header-changed', {
           detail: header[0],
-        });
-        document.dispatchEvent(event);
+        })
+        document.dispatchEvent(event)
       },
       /**
-			 * Scroll to given anchor target
-			 * @param {string} anchor
-			 */
-      scrollToAnchor = function(target) {
+       * Scroll to given anchor target
+       * @param {string} anchor
+       */
+      scrollToAnchor = function (target) {
         $('html,body').animate(
           {
             scrollTop: target.offset().top - header_height,
           },
           500
-        );
+        )
       },
       /**
-			 * Jump to given anchor target
-			 * @param {string} anchor
-			 */
-      jumpToAnchor = function(target) {
-        $(document).scrollTop(target.offset().top - header_height);
-      };
+       * Jump to given anchor target
+       * @param {string} anchor
+       */
+      jumpToAnchor = function (target) {
+        $(document).scrollTop(target.offset().top - header_height)
+      }
 
     // Do on window scroll and resize
-    w
-      .on('resize scroll', function(e) {
-        header_height = header.outerHeight();
-        if (document_height - header_height + opt.offset > w.height()) {
-          // If fixed header
-          if (state !== false && w.scrollTop() > header_height + opt.offset) {
-            toggleClass('addClass');
-            state = false;
+    w.on('resize scroll', function (e) {
+      header_height = header.outerHeight()
+      if (document_height - header_height + opt.offset > w.height()) {
+        // If fixed header
+        if (state !== false && w.scrollTop() > header_height + opt.offset) {
+          toggleClass('addClass')
+          state = false
 
-            // If no fixed header
-          } else if (
-            state !== true &&
-            w.scrollTop() <= header_height + opt.offset
-          ) {
-            toggleClass('removeClass');
-            state = true;
-          }
+          // If no fixed header
+        } else if (
+          state !== true &&
+          w.scrollTop() <= header_height + opt.offset
+        ) {
+          toggleClass('removeClass')
+          state = true
         }
+      }
 
-        // Add direction classes
-        scrollTop = $(this).scrollTop();
-        if (scrollTop < lastScrollTop) {
-          header.addClass('swipe-up');
-        } else {
-          if (header.hasClass('swipe-up')) {
-            header.removeClass('swipe-up');
-          }
+      // Add direction classes
+      scrollTop = $(this).scrollTop()
+      if (scrollTop < lastScrollTop) {
+        header.addClass('swipe-up')
+      } else {
+        if (header.hasClass('swipe-up')) {
+          header.removeClass('swipe-up')
         }
-        lastScrollTop = scrollTop;
-      })
-      .resize();
+      }
+      lastScrollTop = scrollTop
+    }).resize()
 
     // Do anchor action on click
     $(
       'a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href*="#mm-"])'
-    ).click(function(e) {
+    ).click(function (e) {
       if (
         location.pathname.replace(/^\//, '') ==
           this.pathname.replace(/^\//, '') ||
         location.hostname == this.hostname
       ) {
-        var target = $(this.hash);
+        var target = $(this.hash)
 
         if (target.length) {
           if (opt.toAnchor === 'jump') {
-            jumpToAnchor(target);
+            jumpToAnchor(target)
           } else if (opt.toAnchor === 'scroll') {
-            scrollToAnchor(target);
+            scrollToAnchor(target)
           }
-          return false;
+          return false
         }
       }
-    });
+    })
 
     // Do anchor action on page load
     if (target.length && opt.onLoadAnchor !== false) {
-      setTimeout(function() {
-        window.scrollTo(0, 0);
+      setTimeout(function () {
+        window.scrollTo(0, 0)
         if (opt.onLoadAnchor === 'jump') {
-          jumpToAnchor(target);
+          jumpToAnchor(target)
         } else if (opt.onLoadAnchor === 'scroll') {
-          scrollToAnchor(target);
+          scrollToAnchor(target)
         }
-      }, 1);
+      }, 1)
     }
 
     // Do anchor action after anchor change
     if (opt.onChangeAnchor !== false) {
-      w.on('hashchange', function() {
-        var target = $(location.hash);
+      w.on('hashchange', function () {
+        var target = $(location.hash)
         if (target.length) {
           if (opt.onChangeAnchor === 'jump') {
-            jumpToAnchor(target);
+            jumpToAnchor(target)
           } else if (opt.onChangeAnchor === 'scroll') {
-            scrollToAnchor(target);
+            scrollToAnchor(target)
           }
         }
-      });
+      })
     }
 
-    return this;
-  };
-})(jQuery);
+    return this
+  }
+})(jQuery)
