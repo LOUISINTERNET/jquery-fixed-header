@@ -121,7 +121,7 @@
 
     // Do anchor action on click
     $(
-      'a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href*="#mm-"])'
+      'a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href*="#mm-"]):not([class^="mm-"]'
     ).click(function (e) {
       if (
         location.pathname.replace(/^\//, '') ==
